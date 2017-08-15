@@ -10,7 +10,8 @@ abstract class Product
     protected $delivery;
 
 
-    public function info(){
+    public function info()
+    {
         echo "Масса: $this->weight кг<br>";
         echo "Наименование: $this->name<br>";
         echo "Цена: $this->price руб<br>";
@@ -18,9 +19,7 @@ abstract class Product
     }
 
 
-
-
-    public function __construct($name, $price, $weight, $discountFlag,$typeDiscount)
+    public function __construct($name, $price, $weight, $discountFlag, $typeDiscount)
     {
         $this->name = $name;
         $this->price = $price;
@@ -36,10 +35,8 @@ abstract class Product
         } else {
             echo 'При создании товара было введено не допустимое значение';
         }
-        //$discount = $this->discount;
-        //$delivery = $this->delivery;
-        $this->price = $this->price-($this->price * $this->discount) + $this->delivery;
-        //$price = $price * $discount +$delivery;
+
+        $this->price = $this->price - ($this->price * $this->discount) + $this->delivery;
 
 
     }
@@ -47,22 +44,35 @@ abstract class Product
 }
 
 
-class Ball extends Product
+class Game extends Product
 {
 }
 
-$firstBall = new Ball('Doom', 100, 10, 1,0);
-$firstBall->info();
+$firstGame = new Game('Doom', 100, 0.1, 1, 0);
+$firstGame->info();
+$secondGame = new Game('counter-strike', 490, 0.1, 1, 0);
+$secondGame->info();
 
 
-class furniture extends Product {
+class furniture extends Product
+{
 
 }
-$firstFurniture = new furniture('chair',300,6,0,1);
-$secondFurniture = new furniture('table',300,10,0,1);
+
+$firstFurniture = new furniture('chair', 300, 6, 0, 1);
+$secondFurniture = new furniture('table', 300, 10, 0, 1);
 $firstFurniture->info();
 $secondFurniture->info();
 
+class Computers extends Product
+{
+
+}
+
+$firstComputers = new Computers('asus', 50000, 5, 1, 0);
+$secondComputers = new Computers('iMac', 130000, 12, 1, 0);
+$firstComputers->info();
+$secondComputers->info();
 
 
 
