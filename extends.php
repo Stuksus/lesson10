@@ -79,4 +79,3 @@ $secondComputers->info();
 
 
 
-//$weight > 10
